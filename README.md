@@ -1,8 +1,8 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-# CRYPTO VIZ - REAL-TIME CRYPTO CURRENCIES TOOL
+# CRYPTO VIZ - REAL-TIME PRODUCER/CONSUMER DATA PIPELINE
 
--  Container Application Development avec **_Docker_**
+- Container Application Development avec **_Docker_**
 
 - Scraping Web avec _**Selenium Webdriver**_
 
@@ -12,8 +12,12 @@
 
 - Visualisation avec _**Kibana**_
 
-## Description des fichiers:
+<img width="500" alt="Capture d’écran 2024-02-25 à 21 41 23" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/9cc7bbec-1d84-4a57-b066-94161034944f">
+<img width="500" alt="Capture d’écran 2024-02-25 à 19 40 23" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/d0cc2e74-1dff-4551-ab4c-0ea2b948aa58">
+<img width="500" alt="Capture d’écran 2024-02-25 à 19 40 55" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/c4ac2827-a9d1-46dd-bbe5-29dc1ffc4902">
+<img width="500" alt="Capture d’écran 2024-02-25 à 19 41 45" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/21420deb-8706-42c5-9aac-35572c6175bf">
 
+## Description des fichiers:
 
 - **consumer_app/**: module contenant la partie scraper / ajout des données dans les topics kafka
 
@@ -34,6 +38,10 @@
 - **runservers.py**: [DEV] lance les 2 services **_zookeeper_** et **_kafka_**.
 
 - **kafka_setup/**: [DEV] dossier contenant tout le projet kafka (pour run le server, stocker la Queue, etc...).
+
+## Diagramme de flux :
+
+<img width="1508" alt="image" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/03c22f47-2253-4e56-b5d9-3a164b17a0d5">
 
 ## Instructions pour lancer Elasticsearch (obligatoire):
 
@@ -62,6 +70,10 @@ docker exec -it <container_id> /bin/bash
 ```
 
 # Pour une utilisation microservicisé via Docker
+
+## Architecture :
+
+<img width="900" alt="Capture d’écran 2024-02-25 à 22 15 47" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/0fcb5184-b1e5-4d87-8730-0265368ff4f9">
 
 ## Installation
 
