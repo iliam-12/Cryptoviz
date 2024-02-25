@@ -1,0 +1,10 @@
+FROM python:3.9
+
+WORKDIR /producer_app
+
+COPY ./producer_app .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python3", "scraper.py"]

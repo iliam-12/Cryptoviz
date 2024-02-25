@@ -1,0 +1,7 @@
+requests
+pandas
+prophet
+configparser
+loguru
+elasticsearch
+prophet

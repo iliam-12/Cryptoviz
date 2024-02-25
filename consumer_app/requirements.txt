@@ -1,0 +1,4 @@
+kafka-python
+elasticsearch
+configparser
+loguru

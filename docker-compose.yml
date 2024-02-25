@@ -1,0 +1,88 @@
+version: '3'
+
+services:
+  zookeeper1:
+    image: zookeeper
+    restart: always
+    hostname: zookeeper1
+    ports:
+      - 2181:2181
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888;2181 server.2=zookeeper2:2888:3888;2181
+
+  zookeeper2:
+    image: zookeeper
+    restart: always
+    hostname: zookeeper2
+    ports:
+      - 2182:2181
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zookeeper1:2888:3888;2181 server.2=zookeeper2:2888:3888;2181
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.2
+    restart: always
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"  # Pour le plaintext
+      - "9093:9093"  # Pour SSL/TLS
+      - "29092:29092"
+      - "9999:9999"
+      - "19092:19092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092,DOCKER://host.docker.internal:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,DOCKER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_ZOOKEEPER_CONNECT: "zookeeper1:2181,zookeeper2:2182"
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+      # KAFKA_SSL_KEYSTORE_LOCATION: /etc/kafka/secrets/server.keystore.jks
+      # KAFKA_SSL_KEYSTORE_PASSWORD: your_keystore_password
+      # KAFKA_SSL_KEY_PASSWORD: your_key_password
+      # KAFKA_SSL_TRUSTSTORE_LOCATION: /etc/kafka/secrets/server.truststore.jks
+      # KAFKA_SSL_TRUSTSTORE_PASSWORD: your_truststore_password
+    depends_on:
+      - zookeeper1
+      - zookeeper2
+
+  chrome-webdriver:
+      image: selenium/standalone-chrome:latest
+      restart: always
+      hostname: chrome-webdriver
+      privileged: true
+      shm_size: 2g
+
+  kafka-producer:
+    build:
+      context: .
+      dockerfile: Dockerfile_producer
+    restart: always
+    volumes:
+      - ./producer_app:/producer_app
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:19092
+    depends_on:
+      - kafka
+      - chrome-webdriver
+
+  kafka-consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile_consumer
+    restart: always
+    volumes:
+      - ./consumer_app:/consumer_app
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:19092
+    depends_on:
+      - kafka

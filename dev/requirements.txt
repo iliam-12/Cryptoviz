@@ -1,0 +1,7 @@
+kafka-python
+selenium
+elasticsearch
+configparser
+loguru
+requests
+beautifulsoup4

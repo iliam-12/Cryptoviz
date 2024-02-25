@@ -1,0 +1,6 @@
+kafka-python
+selenium
+configparser
+loguru
+requests
+beautifulsoup4

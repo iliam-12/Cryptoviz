@@ -1,0 +1,10 @@
+FROM python:3.9
+
+WORKDIR /ia_module_app
+
+COPY ./ia_module_app .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python3", "prediction.py"]

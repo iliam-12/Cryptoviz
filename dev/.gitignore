@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+test.py
+kafka_setup/
+*.tgz
+venv/

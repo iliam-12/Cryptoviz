@@ -1,0 +1,10 @@
+FROM python:3.9
+
+WORKDIR /consumer_app
+
+COPY ./consumer_app .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python3", "kafka_consumer.py", "--topics", "all"]
