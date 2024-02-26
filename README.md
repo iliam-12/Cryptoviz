@@ -12,10 +12,10 @@
 
 - Visualisation avec _**Kibana**_
 
-<img width="500" alt="Capture d’écran 2024-02-25 à 21 41 23" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/9cc7bbec-1d84-4a57-b066-94161034944f">
-<img width="500" alt="Capture d’écran 2024-02-25 à 19 40 23" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/d0cc2e74-1dff-4551-ab4c-0ea2b948aa58">
-<img width="500" alt="Capture d’écran 2024-02-25 à 19 40 55" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/c4ac2827-a9d1-46dd-bbe5-29dc1ffc4902">
-<img width="500" alt="Capture d’écran 2024-02-25 à 19 41 45" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/21420deb-8706-42c5-9aac-35572c6175bf">
+<img width="500" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/9cc7bbec-1d84-4a57-b066-94161034944f">
+<img width="500" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/d0cc2e74-1dff-4551-ab4c-0ea2b948aa58">
+<img width="500" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/c4ac2827-a9d1-46dd-bbe5-29dc1ffc4902">
+<img width="500" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/21420deb-8706-42c5-9aac-35572c6175bf">
 
 ## Description des fichiers:
 
@@ -41,7 +41,7 @@
 
 ## Diagramme de flux :
 
-<img width="1508" alt="image" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/03c22f47-2253-4e56-b5d9-3a164b17a0d5">
+<img width="1508" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/03c22f47-2253-4e56-b5d9-3a164b17a0d5">
 
 ## Instructions pour lancer Elasticsearch (obligatoire):
 
@@ -73,7 +73,7 @@ docker exec -it <container_id> /bin/bash
 
 ## Architecture :
 
-<img width="900" alt="Capture d’écran 2024-02-25 à 22 15 47" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/0fcb5184-b1e5-4d87-8730-0265368ff4f9">
+<img width="900" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/0fcb5184-b1e5-4d87-8730-0265368ff4f9">
 
 ## Installation
 
@@ -154,7 +154,7 @@ Ouvrez 2 terminaux spécialement dédié pour les laisser tourner.
 
 Avant cela, s'ils existent, supprimer :
 
-<img width="679" alt="image" src="https://github.com/EpitechMscProPromo2024/T-DAT-901-MAR_11/assets/65111947/7a1abf30-4bd1-4672-ad9e-a912c0f25492">
+<img width="679" src="https://github.com/EpitechMscProPromo2024/T-DAT-901-MAR_11/assets/65111947/7a1abf30-4bd1-4672-ad9e-a912c0f25492">
 
 ```
 ps -aux | grep zookeeper
