@@ -207,9 +207,9 @@ Lire le contenu d'un topic `[LOOP]`
 python3 kafka_controller.py <nom_du_topic> --read_messages
 ```
 
-Envoyer des données à InfluxDB depuis un topic Kafka `[LOOP]`
+Envoyer des données à ElasticSearch depuis un topic Kafka `[LOOP]`
 ```
-python3 kafka_controller.py <nom_du_topic> --send_to_influxdb
+python3 kafka_controller.py <nom_du_topic> --send_to_elastic
 ```
 
 #
