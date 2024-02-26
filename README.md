@@ -154,7 +154,7 @@ Ouvrez 2 terminaux spécialement dédié pour les laisser tourner.
 
 Avant cela, s'ils existent, supprimer :
 
-<img width="679" src="https://github.com/EpitechMscProPromo2024/T-DAT-901-MAR_11/assets/65111947/7a1abf30-4bd1-4672-ad9e-a912c0f25492">
+<img width="679" src="https://github.com/iliam-12/Cryptoviz/assets/65111947/43c297bf-b1ef-404d-952f-1b04b76e4bf9">
 
 ```
 ps -aux | grep zookeeper
